@@ -125,18 +125,18 @@ const questions = [
 ]
 
 const characters = [
-  { name: '드미트리 카라마조프', book: '카라마조프의 형제들 — 도스토옙스키', tags: ['충동', '폭발', '쾌락'],    desc: '감정과 욕망에 솔직한 인물. 격정적으로 살아가지만 그 안에 순수함을 품고 있습니다.',           image: '/characters/dmitri.jpg' },
-  { name: '이반 카라마조프',    book: '카라마조프의 형제들 — 도스토옙스키', tags: ['논리', '회의', '반항'],    desc: '냉철한 이성 뒤에 깊은 갈등을 품은 인물. 신과 인간에 대한 질문을 멈추지 않습니다.',           image: '/characters/ivan.jpg' },
-  { name: '알료샤 카라마조프',  book: '카라마조프의 형제들 — 도스토옙스키', tags: ['공감', '헌신', '온화'],    desc: '순수한 사랑으로 주변을 감싸는 인물. 어떤 상황에서도 타인을 먼저 생각합니다.',               image: '/characters/alyosha.jpg' },
-  { name: '라스콜니코프',       book: '죄와 벌 — 도스토옙스키',             tags: ['확신', '집착', '오만'],    desc: '극단적인 신념으로 스스로를 시험한 인물. 이상과 현실 사이에서 무너져 내립니다.',             image: '/characters/raskolnikov.jpg' },
-  { name: '안나 카레니나',      book: '안나 카레니나 — 톨스토이',           tags: ['열정', '낭만', '자유'],    desc: '사랑을 위해 모든 것을 건 인물. 억압된 사회 속에서 자신의 감정에 솔직했습니다.',             image: '/characters/anna.jpg' },
-  { name: '햄릿',               book: '햄릿 — 셰익스피어',                  tags: ['사색', '망설임', '우울'],  desc: '생각이 행동을 앞서는 인물. 끝없는 사유 속에서 결단을 내리지 못하고 방황합니다.',           image: '/characters/hamlet.jpg' },
-  { name: '돈키호테',           book: '돈키호테 — 세르반테스',              tags: ['이상', '모험', '직관'],    desc: '현실보다 꿈을 믿은 인물. 세상이 웃어도 자신의 이상을 포기하지 않습니다.',                 image: '/characters/donquixote.jpg' },
-  { name: '엠마 보바리',        book: '보바리 부인 — 플로베르',             tags: ['욕망', '권태', '탈출'],    desc: '더 아름다운 삶을 꿈꾼 인물. 현실의 단조로움을 견디지 못하고 낭만을 쫓습니다.',           image: '/characters/emma.jpg' },
-  { name: '그레고르 잠자',      book: '변신 — 카프카',                      tags: ['희생', '소외', '의무'],    desc: '묵묵히 희생해온 인물. 어느 날 자신이 완전히 소외되어 있음을 깨닫습니다.',                 image: '/characters/gregor.jpg' },
-  { name: '홀든 콜필드',        book: '호밀밭의 파수꾼 — 샐린저',          tags: ['냉소', '고독', '진정성'],  desc: '순수함을 지키려는 반항아. 세상의 위선을 거부하며 어딘가 진짜인 것을 찾아 헤맵니다.',     image: '/characters/holden.jpg' },
-  { name: '나스타샤 필리포브나', book: '백치 — 도스토옙스키',               tags: ['상처', '자존', '자기파괴'], desc: '깊은 상처를 품고도 자존을 놓지 않는 인물. 사랑 앞에서 스스로를 무너뜨리기를 반복합니다.', image: '/characters/nastasya.jpg' },
-  { name: '춘향',               book: '춘향전 — 작자 미상',                 tags: ['절개', '의지', '신의'],    desc: '사랑과 신의를 목숨보다 소중히 여긴 인물. 어떤 압박에도 자신의 마음을 굽히지 않았습니다.', image: '/characters/chunhyang.jpg' },
+  { name: '드미트리 카라마조프', book: '카라마조프의 형제들 — 도스토옙스키', tags: ['충동', '폭발', '쾌락'],    desc: '감정과 욕망에 솔직한 인물. 격정적으로 살아가지만 그 안에 순수함을 품고 있습니다.',           image: '/characters/dmitri.jpeg' },
+  { name: '이반 카라마조프',    book: '카라마조프의 형제들 — 도스토옙스키', tags: ['논리', '회의', '반항'],    desc: '냉철한 이성 뒤에 깊은 갈등을 품은 인물. 신과 인간에 대한 질문을 멈추지 않습니다.',           image: '/characters/ivan.jpeg' },
+  { name: '알료샤 카라마조프',  book: '카라마조프의 형제들 — 도스토옙스키', tags: ['공감', '헌신', '온화'],    desc: '순수한 사랑으로 주변을 감싸는 인물. 어떤 상황에서도 타인을 먼저 생각합니다.',               image: '/characters/alyosha.jpeg' },
+  { name: '라스콜니코프',       book: '죄와 벌 — 도스토옙스키',             tags: ['확신', '집착', '오만'],    desc: '극단적인 신념으로 스스로를 시험한 인물. 이상과 현실 사이에서 무너져 내립니다.',             image: '/characters/raskolnikov.jpeg' },
+  { name: '안나 카레니나',      book: '안나 카레니나 — 톨스토이',           tags: ['열정', '낭만', '자유'],    desc: '사랑을 위해 모든 것을 건 인물. 억압된 사회 속에서 자신의 감정에 솔직했습니다.',             image: '/characters/anna.jpeg' },
+  { name: '햄릿',               book: '햄릿 — 셰익스피어',                  tags: ['사색', '망설임', '우울'],  desc: '생각이 행동을 앞서는 인물. 끝없는 사유 속에서 결단을 내리지 못하고 방황합니다.',           image: '/characters/hamlet.jpeg' },
+  { name: '돈키호테',           book: '돈키호테 — 세르반테스',              tags: ['이상', '모험', '직관'],    desc: '현실보다 꿈을 믿은 인물. 세상이 웃어도 자신의 이상을 포기하지 않습니다.',                 image: '/characters/donquixote.jpeg' },
+  { name: '엠마 보바리',        book: '보바리 부인 — 플로베르',             tags: ['욕망', '권태', '탈출'],    desc: '더 아름다운 삶을 꿈꾼 인물. 현실의 단조로움을 견디지 못하고 낭만을 쫓습니다.',           image: '/characters/emma.jpeg' },
+  { name: '그레고르 잠자',      book: '변신 — 카프카',                      tags: ['희생', '소외', '의무'],    desc: '묵묵히 희생해온 인물. 어느 날 자신이 완전히 소외되어 있음을 깨닫습니다.',                 image: '/characters/gregor.jpeg' },
+  { name: '홀든 콜필드',        book: '호밀밭의 파수꾼 — 샐린저',          tags: ['냉소', '고독', '진정성'],  desc: '순수함을 지키려는 반항아. 세상의 위선을 거부하며 어딘가 진짜인 것을 찾아 헤맵니다.',     image: '/characters/holden.jpeg' },
+  { name: '나스타샤 필리포브나', book: '백치 — 도스토옙스키',               tags: ['상처', '자존', '자기파괴'], desc: '깊은 상처를 품고도 자존을 놓지 않는 인물. 사랑 앞에서 스스로를 무너뜨리기를 반복합니다.', image: '/characters/nastasya.jpeg' },
+  { name: '춘향',               book: '춘향전 — 작자 미상',                 tags: ['절개', '의지', '신의'],    desc: '사랑과 신의를 목숨보다 소중히 여긴 인물. 어떤 압박에도 자신의 마음을 굽히지 않았습니다.', image: '/characters/chunhyang.jpeg' },
 ]
 
 function pickRandom(arr, n) {
@@ -238,6 +238,13 @@ export default function App() {
 
       {screen === 'start' && (
         <div className="screen active start-screen">
+          <div className="character-grid">
+            {characters.map(c => (
+              <div key={c.name} className="grid-avatar" title={c.name}>
+                <img src={c.image} alt={c.name} />
+              </div>
+            ))}
+          </div>
           <p className="start-title">당신과 닮은<br />고전 속 인물은?</p>
           <p className="start-sub">5개의 질문으로 당신과 가장 닮은<br />고전 소설 속 인물을 찾아드립니다.<br />오래 생각하지 말고 직감대로 선택하세요.</p>
           <button className="start-btn" onClick={startQuiz}>시작하기</button>
