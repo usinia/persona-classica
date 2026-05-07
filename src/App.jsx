@@ -297,20 +297,26 @@ export default function App() {
 
       const answerText = newAnswers.map((a, i) => `Q${i + 1}: ${a.a}`).join('\n')
       try {
-        const res = await fetch(
-          `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${import.meta.env.VITE_GEMINI_API_KEY}`,
-          {
-            method: 'POST',
-            headers: { 'content-type': 'application/json' },
-            body: JSON.stringify({
-              systemInstruction: { parts: [{ text: '당신은 고전문학 전문가입니다. 사용자의 답변을 바탕으로 매칭된 고전 소설 캐릭터와의 연결고리를 따뜻하고 통찰력 있게 3문장으로 설명해주세요. 반말이 아닌 존댓말로, 너무 딱딱하지 않게 써주세요. 설명 외의 다른 말은 하지 마세요.' }] },
-              contents: [{ parts: [{ text: `사용자 답변:\n${answerText}\n\n매칭된 캐릭터: ${matched.name} (${matched.book})\n\n이 사람이 ${matched.name}와 닮은 이유를 3문장으로 설명해주세요.` }] }],
-            }),
-          }
-        )
+        const res = await fetch('https://api.anthropic.com/v1/messages', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+            'x-api-key': import.meta.env.VITE_ANTHROPIC_API_KEY,
+            'anthropic-version': '2023-06-01',
+            'anthropic-dangerous-direct-browser-access': 'true',
+          },
+          body: JSON.stringify({
+            model: 'claude-haiku-4-5-20251001',
+            max_tokens: 300,
+            temperature: 1,
+            system: '당신은 고전문학을 현대적으로 해석하는 재치 있는 큐레이터입니다. 사용자의 답변을 보고, 매칭된 고전 소설 캐릭터와 어떻게 닮았는지를 현대적인 언어와 상황에 빗대어 위트 있고 공감되게 3문장으로 설명하세요. 딱딱한 문학 해설이 아니라, 친한 친구에게 "야, 너 완전 ○○ 스타일이다"라고 말해주듯 써주세요. 존댓말로, 짧고 임팩트 있게. 설명 외의 말은 하지 마세요.',
+            messages: [{ role: 'user', content: `사용자 답변:\n${answerText}\n\n매칭된 캐릭터: ${matched.name} (${matched.book})\n\n이 사람이 ${matched.name}와 닮은 이유를 현대적인 감각으로 재치 있게 3문장으로 설명해주세요.` }],
+          }),
+        })
         const data = await res.json()
-        setReason(data.candidates[0].content.parts[0].text)
-      } catch {
+        setReason(data.content[0].text)
+      } catch (e) {
+        console.error('Gemini API 오류:', e)
         setReason(`${matched.name}의 감정 표현 방식과 삶을 대하는 태도가 당신과 많이 닮아 있습니다. 당신의 선택들에서 이 인물의 내면이 느껴집니다.`)
       }
 
