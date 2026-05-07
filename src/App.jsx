@@ -246,7 +246,8 @@ function matchCharacter(userTags) {
       ...c,
       score: c.tags.reduce((sum, t) => sum + userTags.filter(ut => ut === t).length, 0),
     }))
-    .sort((a, b) => b.score - a.score)[0]
+    .sort((a, b) => b.score - a.score)
+    .slice(0, 2)
 }
 
 export default function App() {
@@ -257,6 +258,7 @@ export default function App() {
   const [userTags, setUserTags] = useState([])
   const [answers, setAnswers] = useState([])
   const [result, setResult] = useState(null)
+  const [result2, setResult2] = useState(null)
   const [reason, setReason] = useState('')
   const [copied, setCopied] = useState(false)
 
@@ -267,6 +269,7 @@ export default function App() {
     setUserTags([])
     setAnswers([])
     setResult(null)
+    setResult2(null)
     setReason('')
     setCopied(false)
     setScreen('quiz')
@@ -287,8 +290,9 @@ export default function App() {
       setCurrentQ(currentQ + 1)
       setSelectedIdx(null)
     } else {
-      const matched = matchCharacter(newTags)
+      const [matched, matched2] = matchCharacter(newTags)
       setResult(matched)
+      setResult2(matched2)
       setScreen('loading')
 
       const answerText = newAnswers.map((a, i) => `Q${i + 1}: ${a.a}`).join('\n')
@@ -378,29 +382,57 @@ export default function App() {
       {screen === 'result' && (
         <div className="screen active">
           <div className="result-card">
-            {result.image && (
-              <img
-                src={result.image}
-                alt={result.name}
-                className="result-image"
-                onError={e => { e.target.style.display = 'none' }}
-              />
-            )}
-            <p className="result-label">당신과 닮은 인물</p>
-            <p className="result-name">{result.name}</p>
-            <p className="result-book">{result.book}</p>
-            <div className="result-divider" />
-            <p className="result-section-title">작품 소개</p>
-            <p className="result-desc">{result.desc}</p>
-            <div className="result-divider" />
-            <p className="result-section-title">당신이 이 인물인 이유</p>
-            <p className="result-ai">{reason}</p>
-            <div className="tags">
-              {topTags.map(t => (
-                <span key={t} className="tag">#{t}</span>
-              ))}
+            <div className="result-hero">
+              {result.image && (
+                <img
+                  src={result.image}
+                  alt={result.name}
+                  onError={e => { e.target.style.display = 'none' }}
+                />
+              )}
+              <div className="result-hero-overlay" />
+              <div className="result-hero-text">
+                <p className="result-hero-label">당신과 닮은 인물</p>
+                <p className="result-hero-name">{result.name}</p>
+                <p className="result-hero-book">{result.book}</p>
+              </div>
+            </div>
+
+            <div className="result-body">
+              <p className="result-section-title">당신이 이 인물인 이유</p>
+              <p className="result-ai">{reason}</p>
+
+              <div className="result-divider" />
+
+              <p className="result-section-title">작품 소개</p>
+              <p className="result-desc">{result.desc}</p>
+
+              <div className="tags">
+                {topTags.map(t => (
+                  <span key={t} className="tag">#{t}</span>
+                ))}
+              </div>
+
+              {result2 && (
+                <div className="result-runner-up">
+                  {result2.image && (
+                    <img
+                      src={result2.image}
+                      alt={result2.name}
+                      className="runner-up-img"
+                      onError={e => { e.target.style.display = 'none' }}
+                    />
+                  )}
+                  <div className="runner-up-info">
+                    <p className="runner-up-label">당신 안에 숨어있는 또 다른 인물</p>
+                    <p className="runner-up-name">{result2.name}</p>
+                    <p className="runner-up-book">{result2.book}</p>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
+
           <div className="result-actions">
             <button className="share-btn" onClick={handleShare}>
               {copied ? '복사됨 ✓' : '결과 공유하기'}
